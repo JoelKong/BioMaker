@@ -8,4 +8,5 @@ body {
   background-image: linear-gradient(180deg, #9a72ae, #c59a89);
   background-size: cover;
   background-attachment: fixed;
+  height: 100vh;
 }
