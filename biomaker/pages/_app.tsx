@@ -1,11 +1,13 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Fragment } from "react";
+import { Inter } from "@next/font/google";
 import "../styles/globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Fragment>
+    <main className={inter.className}>
       <Head>
         <title>BioMaker</title>
         <meta
@@ -17,6 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <Component {...pageProps} />
-    </Fragment>
+    </main>
   );
 }
