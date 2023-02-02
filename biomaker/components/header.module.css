@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 23rem;
+  font-size: 25px;
+  line-height: 5rem;
+}

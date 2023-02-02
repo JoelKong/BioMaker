@@ -1,10 +1,14 @@
+import classes from "./header.module.css";
+
 function Header(): JSX.Element {
   return (
-    <header>
+    <header className={classes.header}>
       <div>
         <h1>BioMaker</h1>
       </div>
-      <h2>Generate Biographies Within Seconds</h2>
+      <h2 className={classes.headersubtitle}>
+        Generate Biographies Within Seconds
+      </h2>
     </header>
   );
 }
