@@ -3,7 +3,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 23rem;
+  margin-top: 5rem;
   font-size: 25px;
   line-height: 5rem;
+  letter-spacing: 5px;
+}
+
+.brand {
+  text-shadow: 3px 3px #c59a89;
+}
+
+.headersubtitle {
+  flex-shrink: 2;
+  padding-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .headersubtitle {
+    font-size: 25px;
+  }
 }

@@ -4,7 +4,7 @@ function Header(): JSX.Element {
   return (
     <header className={classes.header}>
       <div>
-        <h1>BioMaker</h1>
+        <h1 className={classes.brand}>BioMaker</h1>
       </div>
       <h2 className={classes.headersubtitle}>
         Generate Biographies Within Seconds
