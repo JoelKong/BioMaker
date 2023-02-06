@@ -27,6 +27,8 @@
   padding-left: 0.5rem;
   margin-top: 0.8rem;
   border-radius: 0.3rem;
+  font-size: 20px;
+  letter-spacing: 0.1rem;
 }
 
 .formbuttondiv {
@@ -37,15 +39,17 @@
 }
 
 .formbutton {
-  background-color: #c5c3c3;
+  background-color: #986dad;
   border: none;
-  width: 30%;
+  width: 80%;
   height: 2rem;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   font-size: 20px;
+  letter-spacing: 0.2rem;
 }
 
 .formbutton:hover {
-  background-color: #ebcac2;
+  /* background-color: #ebcac2; */
+  background-color: #a039d3;
   cursor: pointer;
 }
