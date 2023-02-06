@@ -6,13 +6,19 @@ function Form(): JSX.Element {
       <form className={classes.form}>
         <div>
           <p>What skillsets do you want in your biography?</p>
-          <input className={classes.forminput} placeholder="hi" />
+          <input
+            className={classes.forminput}
+            placeholder="e.g. Programming, Cooking"
+          />
         </div>
         <div>
           <p className={classes.formquestion}>
             What style would you want your biography to be written in?
           </p>
-          <input className={classes.forminput} />
+          <input
+            className={classes.forminput}
+            placeholder="e.g. Professional, Informal"
+          />
         </div>
         <div>
           <p className={classes.formquestion}>{`Word Count (Optional)`}</p>
