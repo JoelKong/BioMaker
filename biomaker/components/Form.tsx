@@ -1,8 +1,8 @@
-import classes from "./header.module.css";
+import classes from "./form.module.css";
 
 function Form(): JSX.Element {
   return (
-    <section>
+    <section className={classes.formsectionn}>
       <form>
         <div>
           <p>What skillsets do you want in your biography?</p>

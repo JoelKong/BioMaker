@@ -1,0 +1,7 @@
+.formsectionn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 4rem;
+  font-size: 1.5rem;
+}

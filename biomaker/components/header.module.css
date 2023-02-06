@@ -7,19 +7,19 @@
   font-size: 25px;
   line-height: 5rem;
   letter-spacing: 5px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.headerbox {
+  min-width: max-content;
 }
 
 .brand {
   text-shadow: 3px 3px #c59a89;
+  text-align: center;
 }
 
 .headersubtitle {
-  flex-shrink: 2;
   padding-top: 1rem;
-}
-
-@media (max-width: 900px) {
-  .headersubtitle {
-    font-size: 25px;
-  }
 }
