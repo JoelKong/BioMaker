@@ -49,7 +49,15 @@
 }
 
 .formbutton:hover {
-  /* background-color: #ebcac2; */
   background-color: #a039d3;
   cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .form {
+    font-size: 20px;
+  }
+  .forminput {
+    font-size: 15px;
+  }
 }
