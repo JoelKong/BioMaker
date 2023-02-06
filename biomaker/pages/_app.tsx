@@ -1,14 +1,18 @@
 import { NextFont } from "@next/font";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Inter } from "@next/font/google";
+import { Roboto } from "@next/font/google";
 import "../styles/globals.css";
 
-const inter: NextFont = Inter({ subsets: ["latin"] });
+// const inter: NextFont = Inter({ subsets: ["latin"] });
+const roboto: NextFont = Roboto({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
+    <main className={roboto.className}>
       <Head>
         <title>BioMaker</title>
         <meta
