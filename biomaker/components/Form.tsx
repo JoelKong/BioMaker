@@ -1,11 +1,21 @@
 import classes from "./form.module.css";
 import Modal from "./Modal";
-import { FormInput, ModalState } from "../interfaces/formInterface";
+import {
+  FormInput,
+  ModalState,
+  FormFieldError,
+} from "../interfaces/formInterface";
 import { useState, useEffect } from "react";
+import { format } from "path";
 
 function Form(): JSX.Element {
   //States
   const [modal, setModal] = useState<ModalState>({ state: false, message: "" });
+  const [formFieldError, setFormFieldError] = useState<FormFieldError>({
+    skills: false,
+    style: false,
+    wordcount: false,
+  });
   const [formInput, setFormInput] = useState<FormInput>({
     skills: "",
     style: "",
@@ -23,6 +33,28 @@ function Form(): JSX.Element {
   function handleSubmit(e: React.FormEvent): any {
     e.preventDefault();
     const numberRegex: RegExp = /^\d+$/;
+
+    if (!formInput.skills) {
+      setFormFieldError((prev) => {
+        return { ...prev, skills: true };
+      });
+    }
+
+    if (!formInput.style) {
+      setFormFieldError((prev) => {
+        return { ...prev, style: true };
+      });
+    }
+
+    if (
+      formInput.wordcount &&
+      !(formInput.wordcount as string).match(numberRegex)
+    ) {
+      setFormFieldError((prev) => {
+        return { ...prev, wordcount: true };
+      });
+    }
+
     if (
       !formInput.skills ||
       !formInput.style ||
@@ -53,7 +85,9 @@ function Form(): JSX.Element {
             What skillsets do you want in your biography?
           </label>
           <input
-            className={classes.forminput}
+            className={
+              formFieldError.skills ? classes.forminputerror : classes.forminput
+            }
             placeholder="e.g. Programming, Cooking"
             name="skills"
             id="skills"
@@ -65,7 +99,9 @@ function Form(): JSX.Element {
             What style would you want your biography to be written in?
           </label>
           <input
-            className={classes.forminput}
+            className={
+              formFieldError.style ? classes.forminputerror : classes.forminput
+            }
             placeholder="e.g. Professional, Informal"
             name="style"
             id="style"
@@ -78,7 +114,11 @@ function Form(): JSX.Element {
             htmlFor="wordcount"
           >{`Word Count (Optional)`}</label>
           <input
-            className={classes.forminput}
+            className={
+              formFieldError.wordcount
+                ? classes.forminputerror
+                : classes.forminput
+            }
             name="wordcount"
             id="wordcount"
             onChange={handleChange}

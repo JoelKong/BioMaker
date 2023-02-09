@@ -10,3 +10,10 @@ export interface ModalState {
   state: boolean;
   message: string;
 }
+
+//Form Field Error State
+export interface FormFieldError {
+  skills: boolean;
+  style: boolean;
+  wordcount: boolean;
+}
