@@ -17,6 +17,7 @@
 }
 
 .formquestion {
+  display: block;
   padding-top: 1rem;
 }
 
