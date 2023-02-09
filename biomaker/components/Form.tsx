@@ -20,6 +20,7 @@ function Form(): JSX.Element {
     style: "",
     wordcount: null,
   });
+  const [successfulSubmit, setSuccessfulSubmit] = useState<Boolean>(false);
 
   //Store form input state
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -75,6 +76,8 @@ function Form(): JSX.Element {
       setModal({ state: true, message: "Invalid fields" });
       return false;
     }
+
+    setSuccessfulSubmit(true);
   }
 
   useEffect(() => {
