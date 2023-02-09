@@ -1,12 +1,13 @@
 import classes from "./form.module.css";
 import { useState } from "react";
+import { FormInput } from "../interfaces/formInterface";
 
 function Form(): JSX.Element {
   //States
-  const [formInput, setFormInput] = useState({
+  const [formInput, setFormInput] = useState<FormInput>({
     skills: "",
     style: "",
-    wordcount: "",
+    wordcount: null,
   });
 
   //Store form input state
