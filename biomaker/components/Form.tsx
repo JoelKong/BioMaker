@@ -10,14 +10,14 @@ function Form(): JSX.Element {
   });
 
   //Store form input state
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const name = e.target.name;
     const value = e.target.value;
     setFormInput({ ...formInput, [name]: value });
   }
 
   //Form Submission
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent): void {
     e.preventDefault();
   }
 
