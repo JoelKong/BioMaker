@@ -1,0 +1,11 @@
+.modal {
+  position: relative;
+  width: 50%;
+  margin: 0.5rem 0 0.8rem 25%;
+  text-align: center;
+  background-color: #f44336;
+  border-radius: 2rem;
+  color: #ffffff;
+  letter-spacing: 0.2rem;
+  vertical-align: middle;
+}

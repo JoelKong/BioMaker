@@ -1,7 +1,7 @@
 import classes from "./form.module.css";
 import Modal from "./Modal";
 import { FormInput, ModalState } from "../interfaces/formInterface";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Form(): JSX.Element {
   //States
@@ -33,6 +33,16 @@ function Form(): JSX.Element {
       return false;
     }
   }
+
+  useEffect(() => {
+    let modalTimeout: NodeJS.Timeout = setTimeout((): void => {
+      setModal({ state: false, message: "" });
+    }, 4000);
+
+    return (): void => {
+      clearTimeout(modalTimeout);
+    };
+  }, [modal]);
 
   return (
     <section className={classes.formsection}>
