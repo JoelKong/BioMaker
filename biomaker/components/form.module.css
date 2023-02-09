@@ -33,6 +33,18 @@
   letter-spacing: 0.1rem;
 }
 
+.forminputerror {
+  border: 3px solid #f44336;
+  width: 90%;
+  height: 40px;
+  padding-left: 0.5rem;
+  margin-top: 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  outline: none;
+}
+
 .formbuttondiv {
   padding-top: 2rem;
   padding-bottom: 1rem;

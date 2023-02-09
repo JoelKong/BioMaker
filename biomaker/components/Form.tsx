@@ -6,7 +6,6 @@ import {
   FormFieldError,
 } from "../interfaces/formInterface";
 import { useState, useEffect } from "react";
-import { format } from "path";
 
 function Form(): JSX.Element {
   //States
@@ -35,14 +34,22 @@ function Form(): JSX.Element {
     const numberRegex: RegExp = /^\d+$/;
 
     if (!formInput.skills) {
-      setFormFieldError((prev) => {
+      setFormFieldError((prev): FormFieldError => {
         return { ...prev, skills: true };
+      });
+    } else {
+      setFormFieldError((prev): FormFieldError => {
+        return { ...prev, skills: false };
       });
     }
 
     if (!formInput.style) {
-      setFormFieldError((prev) => {
+      setFormFieldError((prev): FormFieldError => {
         return { ...prev, style: true };
+      });
+    } else {
+      setFormFieldError((prev): FormFieldError => {
+        return { ...prev, style: false };
       });
     }
 
@@ -50,8 +57,12 @@ function Form(): JSX.Element {
       formInput.wordcount &&
       !(formInput.wordcount as string).match(numberRegex)
     ) {
-      setFormFieldError((prev) => {
+      setFormFieldError((prev): FormFieldError => {
         return { ...prev, wordcount: true };
+      });
+    } else {
+      setFormFieldError((prev): FormFieldError => {
+        return { ...prev, wordcount: false };
       });
     }
 
