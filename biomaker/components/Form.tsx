@@ -1,10 +1,11 @@
 import classes from "./form.module.css";
-import { FormInput, Modal } from "../interfaces/formInterface";
+import Modal from "./Modal";
+import { FormInput, ModalState } from "../interfaces/formInterface";
 import { useState } from "react";
 
 function Form(): JSX.Element {
   //States
-  const [modal, setModal] = useState<Modal>({ state: false, message: "" });
+  const [modal, setModal] = useState<ModalState>({ state: false, message: "" });
   const [formInput, setFormInput] = useState<FormInput>({
     skills: "",
     style: "",
@@ -21,11 +22,12 @@ function Form(): JSX.Element {
   //Form Submission
   function handleSubmit(e: React.FormEvent): any {
     e.preventDefault();
-    const numberRegex: RegExp = /^[0-9]+$/;
+    const numberRegex: RegExp = /^\d+$/;
     if (
       !formInput.skills ||
       !formInput.style ||
-      (formInput.wordcount as string).match(numberRegex)
+      (formInput.wordcount &&
+        !(formInput.wordcount as string).match(numberRegex))
     ) {
       setModal({ state: true, message: "Invalid fields" });
       return false;
@@ -35,6 +37,7 @@ function Form(): JSX.Element {
   return (
     <section className={classes.formsection}>
       <form className={classes.form} onSubmit={handleSubmit}>
+        {modal.state && <Modal />}
         <div>
           <label htmlFor="skills">
             What skillsets do you want in your biography?

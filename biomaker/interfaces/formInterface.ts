@@ -6,7 +6,7 @@ export interface FormInput {
 }
 
 //Modal State
-export interface Modal {
+export interface ModalState {
   state: boolean;
   message: string;
 }
