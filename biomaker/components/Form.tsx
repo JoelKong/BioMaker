@@ -21,8 +21,8 @@ function Form(): JSX.Element {
     wordcount: null,
   });
   const [generatedBio, setGeneratedBio] = useState<String>("");
-  const [successfulSubmit, setSuccessfulSubmit] = useState<Boolean>(false);
-  const [disabled, setDisabled] = useState<Boolean>(false);
+  const [successfulSubmit, setSuccessfulSubmit] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   //Store form input state
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
