@@ -1,4 +1,3 @@
-import { NextApiResponse, NextApiRequest } from "next";
 import { OpenAIStreamPayload } from "../../interfaces/openai";
 import {
   createParser,
@@ -15,11 +14,10 @@ async function OpenAIStream(payload: OpenAIStreamPayload) {
   const decoder = new TextDecoder();
 
   let counter = 0;
-
   const res = await fetch("https://api.openai.com/v1/completions", {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ""}`,
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
     },
     method: "POST",
     body: JSON.stringify(payload),
@@ -59,12 +57,12 @@ async function OpenAIStream(payload: OpenAIStreamPayload) {
   return stream;
 }
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: Request) {
   if (req.method === "POST") {
-    const { prompt } = req.body;
+    const { prompt } = await req.json();
 
     if (!prompt) {
-      return res.status(400).json({ message: "Prompt not found." });
+      return new Response("Prompt not found", { status: 400 });
     }
 
     const payload: OpenAIStreamPayload = {

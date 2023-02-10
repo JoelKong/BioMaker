@@ -6,7 +6,6 @@ import {
   FormFieldError,
 } from "../interfaces/formInterface";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 function Form(): JSX.Element {
   //States
@@ -21,6 +20,7 @@ function Form(): JSX.Element {
     style: "",
     wordcount: null,
   });
+  const [generatedBio, setGeneratedBio] = useState<String>("");
   const [successfulSubmit, setSuccessfulSubmit] = useState<Boolean>(false);
 
   //Store form input state
@@ -80,13 +80,40 @@ function Form(): JSX.Element {
 
     const generateBio = async () => {
       setSuccessfulSubmit(true);
-      let prompt: string = `Generate me a biography with the following skillsets: ${
+      let prompt: string = `Generate me a biography using "I" to refer to myself with the following skillsets: ${
         formInput.skills
       }. I want it to be in the following styles: ${formInput.style}. ${
-        formInput.wordcount && `Generate this in ${formInput.wordcount} words.`
+        formInput.wordcount
+          ? `Generate this in ${formInput.wordcount} words.`
+          : "Generate this in 50 words"
       }`;
-      const sendParams = await axios.post("/api/generate", { prompt: prompt });
+
+      const sendPrompt = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt,
+        }),
+      });
+
+      const bio = sendPrompt.body;
+
+      if (!bio) {
+        return;
+      }
+      const reader = bio.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value);
+        setGeneratedBio((prev) => prev + chunkValue);
+      }
     };
+    generateBio();
   }
 
   useEffect(() => {
@@ -157,6 +184,7 @@ function Form(): JSX.Element {
           </button>
         </div>
       </form>
+      {generatedBio}
     </section>
   );
 }
