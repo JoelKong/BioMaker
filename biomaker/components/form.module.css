@@ -106,12 +106,46 @@
   animation: dot-elastic-after 1s infinite linear;
 }
 
+.biography {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+}
+
+.bioheader {
+  padding-bottom: 2rem;
+  font-size: 40px;
+  font-weight: 600;
+  text-shadow: #9880ff 1px 0 50px;
+  letter-spacing: 0.4rem;
+  text-align: center;
+}
+
+.biobody {
+  letter-spacing: 0.1rem;
+  line-height: 2.2rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 30px rgb(0, 0, 0);
+  padding: 1rem 1rem 1rem 1rem;
+}
+
 @media (max-width: 650px) {
   .form {
     font-size: 16px;
   }
   .forminput,
   .forminputerror {
+    font-size: 15px;
+  }
+  .bioheader {
+    letter-spacing: 2px;
+    font-size: 25px;
+  }
+  .biobody {
     font-size: 15px;
   }
 }

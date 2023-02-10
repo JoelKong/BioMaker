@@ -79,6 +79,7 @@ function Form(): JSX.Element {
     }
 
     const generateBio = async () => {
+      setGeneratedBio("");
       setSuccessfulSubmit(true);
       let prompt: string = `Generate me a biography using "I" to refer to myself with the following skillsets: ${
         formInput.skills
@@ -111,6 +112,10 @@ function Form(): JSX.Element {
         done = doneReading;
         const chunkValue = decoder.decode(value);
         setGeneratedBio((prev) => prev + chunkValue);
+        if (done) {
+          reader.releaseLock();
+          setSuccessfulSubmit(false);
+        }
       }
     };
     generateBio();
@@ -184,7 +189,14 @@ function Form(): JSX.Element {
           </button>
         </div>
       </form>
-      {generatedBio}
+      {generatedBio && (
+        <article className={classes.biography}>
+          <div className={classes.bioheader}>
+            <span>Generated Biography</span>
+          </div>
+          <div className={classes.biobody}>{generatedBio}</div>
+        </article>
+      )}
     </section>
   );
 }
