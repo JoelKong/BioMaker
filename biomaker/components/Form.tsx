@@ -22,6 +22,7 @@ function Form(): JSX.Element {
   });
   const [generatedBio, setGeneratedBio] = useState<String>("");
   const [successfulSubmit, setSuccessfulSubmit] = useState<Boolean>(false);
+  const [disabled, setDisabled] = useState<Boolean>(false);
 
   //Store form input state
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -80,6 +81,7 @@ function Form(): JSX.Element {
 
     const generateBio = async () => {
       setGeneratedBio("");
+      setDisabled(true);
       setSuccessfulSubmit(true);
       let prompt: string = `Generate me a biography using "I" to refer to myself with the following skillsets: ${
         formInput.skills
@@ -115,6 +117,7 @@ function Form(): JSX.Element {
         if (done) {
           reader.releaseLock();
           setSuccessfulSubmit(false);
+          setDisabled(false);
         }
       }
     };
@@ -143,6 +146,7 @@ function Form(): JSX.Element {
             className={
               formFieldError.skills ? classes.forminputerror : classes.forminput
             }
+            disabled={disabled}
             placeholder="e.g. Programming, Cooking"
             name="skills"
             id="skills"
@@ -157,6 +161,7 @@ function Form(): JSX.Element {
             className={
               formFieldError.style ? classes.forminputerror : classes.forminput
             }
+            disabled={disabled}
             placeholder="e.g. Professional, Informal"
             name="style"
             id="style"
@@ -176,11 +181,12 @@ function Form(): JSX.Element {
             }
             name="wordcount"
             id="wordcount"
+            disabled={disabled}
             onChange={handleChange}
           />
         </div>
         <div className={classes.formbuttondiv}>
-          <button className={classes.formbutton}>
+          <button className={classes.formbutton} disabled={disabled}>
             {successfulSubmit ? (
               <div className={classes.loading}></div>
             ) : (
