@@ -78,16 +78,15 @@ function Form(): JSX.Element {
       return false;
     }
 
-    setSuccessfulSubmit(true);
-    let prompt: string = `Generate me a biography with the following skillsets: ${
-      formInput.skills
-    }. I want it to be in the following styles: ${formInput.style}. ${
-      formInput.wordcount && `Generate this in ${formInput.wordcount} words.`
-    }`;
-
-    // const generateBio = async () => {
-    //   const sendParams = await axios.post('/api/generate', {prompt: prompt})
-    // }
+    const generateBio = async () => {
+      setSuccessfulSubmit(true);
+      let prompt: string = `Generate me a biography with the following skillsets: ${
+        formInput.skills
+      }. I want it to be in the following styles: ${formInput.style}. ${
+        formInput.wordcount && `Generate this in ${formInput.wordcount} words.`
+      }`;
+      const sendParams = await axios.post("/api/generate", { prompt: prompt });
+    };
   }
 
   useEffect(() => {
