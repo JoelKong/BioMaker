@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>BioMaker</title>
         <meta
           name="description"
-          content="Generate a professional bio or any other selected themes."
+          content="Generate biographies with BioMaker, you can customise the biography to fit your skills and choice of style."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
