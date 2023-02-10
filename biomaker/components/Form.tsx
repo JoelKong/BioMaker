@@ -6,6 +6,7 @@ import {
   FormFieldError,
 } from "../interfaces/formInterface";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Form(): JSX.Element {
   //States
@@ -78,6 +79,15 @@ function Form(): JSX.Element {
     }
 
     setSuccessfulSubmit(true);
+    let prompt = `Generate me a biography with the following skillsets: ${
+      formInput.skills
+    }. I want it to be in the following styles: ${formInput.style}. ${
+      formInput.wordcount && `Generate this in ${formInput.wordcount} words.`
+    }`;
+
+    // const generateBio = async () => {
+    //   const sendParams = await axios.post('/api/generate', {prompt: prompt})
+    // }
   }
 
   useEffect(() => {
