@@ -122,6 +122,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding-top: 3rem;
+  width: 100%;
 }
 
 .bioheader {
