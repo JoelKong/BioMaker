@@ -64,16 +64,19 @@
   border-radius: 0.5rem;
   font-size: 20px;
   letter-spacing: 0.2rem;
+  color: black;
 }
 
 .formbutton:disabled {
   opacity: 0.95;
   cursor: auto;
+  color: black;
 }
 
 .formbutton:hover:not([disabled]) {
   background-color: #a039d3;
   cursor: pointer;
+  color: black;
 }
 
 .loading {
