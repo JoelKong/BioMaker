@@ -81,8 +81,8 @@ function Form(): JSX.Element {
 
     const generateBio = async () => {
       setGeneratedBio("");
-      setDisabled(true);
       setSuccessfulSubmit(true);
+      setDisabled(true);
       let prompt: string = `Generate me a biography using "I" to refer to myself with the following skillsets: ${
         formInput.skills
       }. I want it to be in the following styles: ${formInput.style}. ${
