@@ -79,7 +79,7 @@ function Form(): JSX.Element {
     }
 
     setSuccessfulSubmit(true);
-    let prompt = `Generate me a biography with the following skillsets: ${
+    let prompt: string = `Generate me a biography with the following skillsets: ${
       formInput.skills
     }. I want it to be in the following styles: ${formInput.style}. ${
       formInput.wordcount && `Generate this in ${formInput.wordcount} words.`
@@ -149,7 +149,13 @@ function Form(): JSX.Element {
           />
         </div>
         <div className={classes.formbuttondiv}>
-          <button className={classes.formbutton}>Generate Bio</button>
+          <button className={classes.formbutton}>
+            {successfulSubmit ? (
+              <div className={classes.loading}></div>
+            ) : (
+              "Generate Bio"
+            )}
+          </button>
         </div>
       </form>
     </section>
