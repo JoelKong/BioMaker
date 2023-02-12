@@ -8,7 +8,7 @@ A dynamic biography generator that allows users to personalize their profiles by
 Development: Next.JS with React.js and Typescript  
 Deployed with: Vercel  
 Tools used: OpenAI's GPT-3, RegEx, Next.JS Edge functions with ReadableStreams  
-A dynamic prompt was send to the GPT-3 API based off the user's input and was displayed through a readable stream. Next.JS allows for more effective SEO and also implements static generation to reduce page load. Using Edge functions also improves the user experience by reflecting parts of the output even before it finishes loading.
+A dynamic prompt is sent to the GPT-3 API based off the user's input and displayed through a readable stream. Next.JS allows for more effective SEO and also implements static generation to reduce page load. Using Edge functions also improves the user experience by reflecting parts of the output even before it finishes loading.
 
 
 ## Validity Checking
