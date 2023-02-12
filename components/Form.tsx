@@ -101,14 +101,14 @@ function Form(): JSX.Element {
         }),
       });
 
-      const bio = sendPrompt.body;
+      const bio: ReadableStream = sendPrompt.body as ReadableStream;
 
       if (!bio) {
         return;
       }
       const reader = bio.getReader();
       const decoder = new TextDecoder();
-      let done = false;
+      let done: boolean = false;
       while (!done) {
         const { value, done: doneReading } = await reader.read();
         done = doneReading;
