@@ -19,4 +19,4 @@ If users fail to fill in the required fields or enter invalid values, the progra
 ## Generate Biography
 Once users are satisfied with their inputs, the prompt will be sent to the GPT-3 API and data will be passed through a readable stream to be displayed letter by letter so that users would not have to wait for the entire answer to be loaded before it is shown. This greatly boosts the user experience as users wont be tempted to bounce off the page due to the fast answer generation.
 
-![GenerateBio](/asset/generatebio.gif)
+![GenerateBio](/assets/generatebio.gif)
