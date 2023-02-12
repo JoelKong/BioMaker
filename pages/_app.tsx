@@ -4,7 +4,6 @@ import Head from "next/head";
 import { Roboto } from "@next/font/google";
 import "../styles/globals.css";
 
-// const inter: NextFont = Inter({ subsets: ["latin"] });
 const roboto: NextFont = Roboto({
   weight: ["400", "700"],
   subsets: ["latin"],
